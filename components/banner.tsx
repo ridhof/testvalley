@@ -10,11 +10,7 @@ interface BannerProps {
 }
 
 function Banner({ data }: BannerProps) {
-	if (data.length <= 0) {
-		return 
-	}
-
-	const banners: { title: string, imageUrl: string } = data.map((row) => {
+	const banners: { title: string, imageUrl: string }[] = data.map((row) => {
 		if (typeof window !== "undefined" && window.innerWidth <= 1024) {
 			return { title: row.title, imageUrl: row.mobileImageUrl };
 		} else {
@@ -33,6 +29,10 @@ function Banner({ data }: BannerProps) {
 			}
 		}, 8 * 1000);
 	}, [bannerIndex]);
+
+	if (data.length <= 0) {
+		return
+	}
 
 	return (
 		<div className="lg:-ml-[50rem] lg:pt-[4.4rem] h-[13rem] lg:h-[24rem] flex gap-x-8 bg-white overflow-hidden mx-auto max-w-sm lg:max-w-none">

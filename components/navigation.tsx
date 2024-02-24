@@ -16,11 +16,13 @@ function Navigation() {
 				<div className="flex gap-x-3">
 					<Image
 						src={TestValleyLogo}
+						alt="testvalley logo"
 						height={28}
 					/>
 					<button className="hidden lg:flex gap-x-1">
 						<Image
 							src={CategoryIcon}
+							alt="category icon"
 							height={14}
 						/>
 						<span
@@ -44,6 +46,7 @@ function Navigation() {
 				<div className="hidden lg:flex gap-x-2">
 					<Image
 						src={EventIcon}
+						alt="event icon"
 						height={28}
 					/>
 					<div className="border border-gray-300 h-[16px] my-auto" />
@@ -57,10 +60,12 @@ function Navigation() {
 				<div className="flex gap-x-4 lg:hidden">
 					<Image
 						src={BellIcon}
+						alt="bell icon"
 						height={24}
 					/>
 					<Image
 						src={SearchIcon}
+						alt="search icon"
 						height={24}
 					/>
 				</div>
