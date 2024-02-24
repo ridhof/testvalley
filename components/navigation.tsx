@@ -10,7 +10,7 @@ import TestValleyLogo from "@/icons/testvalley.svg";
 function Navigation() {
 	return (
 		<div
-			className="z-10 bg-white mx-auto max-w-sm lg:max-w-full lg:fixed lg:left-0 lg:right-0 text-sm py-4"
+			className="z-10 bg-white mx-auto max-w-sm lg:max-w-full lg:fixed lg:left-0 lg:right-0 text-sm py-4 lg:border-b"
 		>
 			<div className="px-4 mx-auto flex gap-x-3 max-w-5xl w-full items-center justify-between lg:justify-evenly">
 				<div className="flex gap-x-3">
