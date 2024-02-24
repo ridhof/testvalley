@@ -1,15 +1,18 @@
-import Image from "next/image";
-
+import { Navigation } from "@/components/navigation";
 import { NextContent } from "@/components/next-content";
 import { NextHeader } from "@/components/next-header";
 
 export default function Home() {
 	return (
 		<main
-			className="flex min-h-screen flex-col items-center justify-between p-24"
+			className="min-h-screen"
 		>
-			<NextHeader />
-			<NextContent />
-    	</main>
+			<Navigation />
+			<div
+				className="flex flex-col items-center justify-between p-24"
+			>
+				<NextContent />
+			</div>
+		</main>
 	);
 }
