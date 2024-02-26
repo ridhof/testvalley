@@ -35,7 +35,7 @@ function Banner({ data }: BannerProps) {
 	}
 
 	return (
-		<div className="lg:-ml-[50rem] lg:pt-[4.4rem] h-[13rem] lg:h-[24rem] flex gap-x-8 bg-white overflow-hidden mx-auto max-w-sm lg:max-w-none">
+		<div className="lg:-ml-[60rem] xl:-ml-[50rem] lg:pt-[4.4rem] h-[13rem] lg:h-[24rem] flex gap-x-8 bg-white overflow-hidden mx-auto max-w-sm lg:max-w-none">
 			<Image
 				src={banners[bannerIndex - 1 < 0 ? data.length - 1 : bannerIndex - 1].imageUrl}
 				alt={banners[bannerIndex - 1 < 0 ? data.length - 1 : bannerIndex - 1].title}
