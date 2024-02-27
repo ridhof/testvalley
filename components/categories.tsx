@@ -18,11 +18,12 @@ function Categories({ data }: CategoriesProps) {
 			<Link key={mainShortcutId} href={linkUrl}>
 				<Image
 					src={imageUrl}
+					alt={`${title} icon`}
 					width={60}
 					height={60}
 					className="w-[3rem] lg:w-[4rem] mx-auto"
 				/>
-				<p className="mt-[2rem] text-xs text-center">
+				<p className="mt-[0.3rem] text-xs text-center text-gray-500">
 					{title}
 				</p>
 			</Link>
