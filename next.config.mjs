@@ -14,7 +14,12 @@ const nextConfig = {
 				port: '',
 				pathname: '/media/**',
 			},
-
+			{
+				protocol: 'https',
+				hostname: 'prod-testvalley.s3.ap-northeast-2.amazonaws.com',
+				port: '',
+				pathname: '/static/preface_icon/**',
+			},
 		],
 	},
 	output: "standalone",

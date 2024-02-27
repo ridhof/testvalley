@@ -28,7 +28,7 @@ function Banner({ data }: BannerProps) {
 				setBannerIndex(0);
 			}
 		}, 8 * 1000);
-	}, [bannerIndex]);
+	}, [bannerIndex, data]);
 
 	if (data.length <= 0) {
 		return

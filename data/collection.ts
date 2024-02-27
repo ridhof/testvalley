@@ -135,5 +135,5 @@ async function getCollectionData(): Promise<collectionResponseData> {
 	return res.json();
 };
 
-export type { collectionResponseData };
+export type { collectionData, collectionResponseData, itemData };
 export { getCollectionData };
