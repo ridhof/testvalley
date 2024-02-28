@@ -10,50 +10,55 @@ interface BannerProps {
 }
 
 function Banner({ data }: BannerProps) {
-	const banners: { title: string, imageUrl: string }[] = data.map((row) => {
+	const banners: ({imageUrl: string} & bannerData)[] = data.map((row) => {
 		if (typeof window !== "undefined" && window.innerWidth <= 1024) {
-			return { title: row.title, imageUrl: row.mobileImageUrl };
+			return { imageUrl: row.mobileImageUrl, ...row };
 		} else {
-			return { title: row.title, imageUrl: row.pcImageUrl };
+			return { imageUrl: row.pcImageUrl, ...row };
 		}
 	});
 
-	const [bannerIndex, setBannerIndex] = useState(0);
+	const [index, setIndex] = useState(0);
 
 	useEffect(() => {
 		setTimeout(() => {
-			if (bannerIndex + 1 < data.length) {
-				setBannerIndex(bannerIndex + 1);
+			if (index + 1 < banners.length) {
+				setIndex(index + 1);
 			} else {
-				setBannerIndex(0);
+				setIndex(0);
 			}
 		}, 8 * 1000);
-	}, [bannerIndex, data]);
+	}, [index, banners]);
 
 	if (data.length <= 0) {
 		return
 	}
 
+	let transformClassname = {transform: `translate(calc(${index} * -62rem), 0rem)`};
+	if (typeof window !== "undefined" && window.innerWidth < 1024) {
+		transformClassname = {transform: `translate(calc(${index} * -24rem), 0rem)`};
+	}
+
 	return (
-		<div className="lg:-ml-[60rem] xl:-ml-[50rem] lg:pt-[4.4rem] h-[13rem] lg:h-[24rem] flex gap-x-8 bg-white overflow-hidden mx-auto max-w-sm lg:max-w-none">
-			<Image
-				src={banners[bannerIndex - 1 < 0 ? data.length - 1 : bannerIndex - 1].imageUrl}
-				alt={banners[bannerIndex - 1 < 0 ? data.length - 1 : bannerIndex - 1].title}
-				height={80}
-				width={960}
-			/>
-			<Image
-				src={banners[bannerIndex].imageUrl}
-				alt={banners[bannerIndex].title}
-				height={80}
-				width={960}
-			/>
-			<Image
-				src={banners[bannerIndex + 1 >= data.length ? 0 : bannerIndex + 1].imageUrl}
-				alt={banners[bannerIndex + 1 >= data.length ? 0 : bannerIndex + 1].title}
-				height={80}
-				width={960}
-			/>
+		<div
+			className="overflow-hidden lg:pt-[4.4rem] h-[13rem] lg:h-[24rem] flex lg:gap-x-8 bg-white mx-auto max-w-sm lg:max-w-none"
+		>
+			<div
+				className="lg:min-w-[10rem]"
+			>
+			</div>
+			{
+				banners.map(
+					(banner) => <Image
+						key={banner.mainBannerId}
+						src={banner.imageUrl}
+						alt={banner.title}
+						height={80}
+						width={960}
+						style={transformClassname}
+					/>
+				)
+			}
 		</div>
 	);
 }
