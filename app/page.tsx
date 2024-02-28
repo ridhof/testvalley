@@ -1,4 +1,5 @@
 import { Banner } from "@/components/banner";
+import { BottomMenu } from "@/components/bottom-menu";
 import { Categories } from "@/components/categories";
 import { ItemSection } from "@/components/item-section";
 import { Navigation } from "@/components/navigation";
@@ -27,9 +28,10 @@ export default async function Home() {
 	);
 	return (
 		<main
-			className="min-h-screen"
+			className="min-h-screen static"
 		>
 			<Navigation />
+			<BottomMenu />
 			<Banner data={bannerResponseData} />
 			<div
 				className="bg-white max-w-[24rem] lg:max-w-[60rem] mx-auto flex flex-col gap-y-[4.4rem] items-center justify-between py-[1rem] lg:py-[4.4rem]"

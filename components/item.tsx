@@ -86,12 +86,14 @@ function Item({data, className}: ItemProps) {
 				<div
 					className="flex gap-x-[0.1rem] border border-[0.1rem] border-gray-300 p-1 w-fit"
 				>
-					<Image
-						src={data.publication.prefaceIconUrl}
-						alt={data.publication.preface}
-						height={16}
-						width={16}
-					/>
+					{
+						data.publication.prefaceIconUrl && <Image
+							src={data.publication.prefaceIconUrl}
+							alt={data.publication.preface}
+							height={16}
+							width={16}
+						/>
+					}
 					<p
 						className="text-xs text-gray-600"
 					>

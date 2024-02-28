@@ -116,7 +116,7 @@ function ItemSection({data}: ItemSectionProps) {
 					</button>
 				</div>
 			</div>
-			<div className="grid grid-cols-2 lg:flex lg:gap-x-[0.6rem]">
+			<div className="grid grid-cols-2 lg:flex lg:gap-x-[0.6rem] gap-y-[0.6rem]">
 				{
 					items.map(
 						(row, index) => <Item
